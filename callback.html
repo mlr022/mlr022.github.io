@@ -1,0 +1,15 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conectando con TikTok · Iris lo explica</title><link rel="stylesheet" href="estilo.css"></head><body><main>
+<h1>Conectando con TikTok…</h1>
+<p id="msg">Volviendo a la herramienta de publicación del canal.</p>
+<script>
+  // TikTok vuelve aquí tras el login (Redirect URI registrada). Pasamos el código a la herramienta local del canal,
+  // que corre solo en el ordenador del titular (http://localhost:8765).
+  var q = location.search;
+  if (q.indexOf('code=') >= 0 || q.indexOf('error=') >= 0) {
+    location.replace('http://localhost:8765/callback' + q);
+  } else {
+    document.getElementById('msg').textContent = 'No hay nada que conectar: abre la herramienta del canal y pulsa «Conectar con TikTok».';
+  }
+</script>
+</main></body></html>
